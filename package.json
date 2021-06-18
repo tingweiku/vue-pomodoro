@@ -1,5 +1,5 @@
 {
-  "name": "pomodoro",
+  "name": "pomodoro-hw",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
     "vuex-persistedstate": "^3.2.0"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.12.1",
+    "@babel/polyfill": "^7.11.5",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",
@@ -48,24 +48,5 @@
     "stylus-loader": "^3.0.2",
     "vue-cli-plugin-bootstrap-vue": "~0.7.0",
     "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }

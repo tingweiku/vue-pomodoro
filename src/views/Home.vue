@@ -80,7 +80,6 @@ export default {
         audio.src = require('../assets/' + this.$store.state.sound)
         audio.play()
       }
-
       if (this.list.length > 0) {
         this.start()
       } else {

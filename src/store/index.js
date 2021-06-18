@@ -4,7 +4,6 @@ import createPersistedState from 'vuex-persistedstate'
 
 const time = parseInt(process.env.VUE_APP_TIME)
 const timeBreak = parseInt(process.env.VUE_APP_TIME_BREAK)
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -46,7 +45,6 @@ export default new Vuex.Store({
       state.list.splice(data, 1)
     },
     start (state) {
-      state.timeleft = state.isBreak ? timeBreak : time
       if (state.isBreak) {
         state.current = '休息一下'
       } else {
