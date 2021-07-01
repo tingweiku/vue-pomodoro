@@ -1,13 +1,15 @@
 <template lang="pug">
 #app
-  b-navbar(toggable='lg' type='dark' variant='info')
-    b-container
-      b-navbar-brand(to='/') 番茄鐘
-      b-navbar-toggle(target='navbar-collapse')
-      b-collapse#navbar-collapse(is-nav)
-        b-navbar-nav.ml-auto
-          b-nav-item(to='/list') 清單
-          b-nav-item(to='/settings') 設定
+  #sidebar
+    #btn
+      b-link(to='/')
+        font-awesome-icon(:icon='["fas", "play-circle"]')
+    #btn
+      b-link(to='/list')
+        font-awesome-icon(:icon='["fas", "check"]')
+    #btn
+      b-link(to='/settings')
+        font-awesome-icon(:icon='["fas", "cog"]')
   keep-alive
     router-view
 </template>

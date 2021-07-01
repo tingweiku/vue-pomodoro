@@ -1,14 +1,16 @@
 <template lang="pug">
 #list
-  b-container
+  #list-content.text-secondary
     b-row
-      b-col(cols='12')
-        b-form-group(label='新增事項' invalid-feedback='請至少輸入兩個字' :state='state')
-          b-form-input(v-model='newitem' :state='state' trim @keydown.enter='additem')
-        b-btn(variant='primary' @click='additem') 新增
-        hr
-        h1 待辦
-        b-table(:items='list' :fields='listfields')
+      b-col(cols='12').add.p-4
+        b-col(cols='3')
+          b-form-group(label='新增事項' invalid-feedback='請至少輸入兩個字' :state='state')
+            b-form-input(v-model='newitem' :state='state' trim @keydown.enter='additem')
+          b-btn.button(variant='secondary' @click='additem') 新增
+      b-col(cols='6').todo.p-5
+        h2 待辦事項
+        br
+        b-table(:items='list' :fields='listfields').text-secondary
           template(#cell(name)='data')
             b-form-input(
               v-if='data.item.edit'
@@ -18,7 +20,7 @@
               @keydown.enter='changelist(data.index)'
               @keydown.esc='cancellist(data.index)'
             )
-            span(v-else) {{ data.value }}
+            span#todo-item(v-else) {{ data.value }}
           template(#cell(action)='data')
             span(v-if='!data.item.edit')
               b-btn(@click='editlist(data.index)' variant='success')
@@ -30,15 +32,18 @@
                 font-awesome-icon(:icon='["fas", "check"]')
               b-btn(@click='cancellist(data.index)' variant='danger')
                 font-awesome-icon(:icon='["fas", "undo"]')
-        h1 已完成
-        b-table-simple
+      #divider
+      b-col(cols='6').done.p-5
+        h2 已完成事項
+        br
+        b-table-simple.text-secondary
           thead
             tr
               th 名稱
               th 操作
           tbody
             tr(v-for='(item, idx) in finished' :key='idx')
-              td {{ item }}
+              td#done-item {{ item }}
               td
                 b-btn(@click='delfinish(idx)' variant='danger')
                   font-awesome-icon(:icon='["fas", "trash"]')

@@ -1,6 +1,6 @@
 <template lang="pug">
 #settings
-  b-container
+  #settings-content
     b-table(:items='items' :fields='fields' @row-clicked='select')
       template(#cell(src)='data')
         audio(controls :src='require("../assets/" + data.value)')

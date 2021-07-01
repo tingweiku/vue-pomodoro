@@ -1,16 +1,17 @@
 <template lang="pug">
 #home
-  b-container
-    b-row
-      b-col(cols='12')
-        h1 {{ currentText }}
-        h2 {{ timeText }}
-        b-btn(variant='primary' v-if='status !== 1' @click='start')
-          font-awesome-icon(:icon='["fas", "play"]')
-        b-btn(variant='primary' v-if='status === 1' @click='pause')
-          font-awesome-icon(:icon='["fas", "pause"]')
-        b-btn(variant='primary' v-if='current.length > 0' @click='finish(true)')
-          font-awesome-icon(:icon='["fas", "step-forward"]')
+  #home-content
+    #text
+      p {{ currentText }}
+    #white
+      b-btn(variant='white' v-if='status !== 1' @click='start')
+        font-awesome-icon(:icon='["fas", "play"]')
+      b-btn(variant='white' v-if='status === 1' @click='pause')
+        font-awesome-icon(:icon='["fas", "pause"]')
+      p {{ timeText }}
+    #bottom
+      b-btn(v-if='current.length > 0' @click='finish(true)')
+        font-awesome-icon(:icon='["fas", "times"]')
 </template>
 
 <script>
